@@ -3,6 +3,7 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
+  console.log("suh");
 
   var PassConfirm = window.confirm("Would you like to generate a password?");
         if (PassConfirm) {
@@ -32,6 +33,7 @@ var CapChar = function() {
 }
 
 var LowChar = function() {
+  // ask player what they'd like to do
   LowerChar = window.confirm("Would you like to use Lower-case characters?");
         if (LowerChar) {
           console.log(LowerChar);
@@ -70,6 +72,44 @@ var CharacterAmount = function() {
     if (SpecialChar && LowerChar && CapitalChar){
       chars = "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     }
+    else if (SpecialChar && LowerChar && !CapitalChar) {
+      chars = "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()";
+    }
+    else if (SpecialChar && !LowerChar && !CapitalChar) {
+      chars = "0123456789!@#$%^&*()";
+    }
+    else if (SpecialChar && !LowerChar && CapitalChar) {
+      chars = "0123456789!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    }
+
+    else if (SpecialChar && LowerChar && !CapitalChar) {
+      chars = "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()";
+    }
+
+    else if (!SpecialChar && LowerChar && CapitalChar) {
+      chars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    }
+    
+    else if (!SpecialChar && LowerChar && !CapitalChar) {
+      chars = "0123456789abcdefghijklmnopqrstuvwxyz";
+    }
+    
+    else if (!SpecialChar && !LowerChar && CapitalChar) {
+      chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    }
+    
+    else if (SpecialChar && !LowerChar && CapitalChar) {
+      chars = "0123456789!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    }
+    
+    else if (!SpecialChar && LowerChar && CapitalChar) {
+      chars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    }
+
+    else {
+      window.confirm("Please, try again with correct parameters!");
+    }
+  
     var passwordLength = CharacterAmount -1;
     password = "";
     
