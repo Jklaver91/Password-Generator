@@ -1,9 +1,6 @@
-// Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-// Write password to the #password input
 function writePassword() {
-  console.log("suh");
 
   var PassConfirm = window.confirm("Would you like to generate a password?");
         if (PassConfirm) {
@@ -15,7 +12,6 @@ function writePassword() {
 
 }
 
-// Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
 var CapChar = function() {
@@ -66,7 +62,7 @@ var CharacterAmount = function() {
   );
 
   // convert answer from prompt to an actual number
-  CharacterAmount = parseInt(CharacterAmount);
+  // CharacterAmount = parseInt(CharacterAmount);
   console.log(CharacterAmount);
  
     if (SpecialChar && LowerChar && CapitalChar){
