@@ -47,7 +47,7 @@ var LowChar = function() {
 
 //prompt to generate true or false for special characters in password then proceed to Character amount.
 var SpecChar = function() {
-  SpecialChar = window.confirm("Would you like to use special characters?");
+  SpecialChar = window.confirm("Would you like to use Special-case characters?");
         if (SpecialChar) {
           console.log(SpecialChar);
           CharacterAmount();
@@ -61,7 +61,7 @@ var SpecChar = function() {
 //prompt to determine how long the password will be.
 var CharacterAmount = function() {
    var CharacterAmount = window.prompt(
-    "How many characters long do you want your password to be? (8-128)"
+    "How many characters long do you want your password to be? (8-128) *All passwords will include numerical values for additional security."
   );
   console.log(CharacterAmount);
     // conditionals to determine character pool depending on user choice.
@@ -71,37 +71,21 @@ var CharacterAmount = function() {
     else if (SpecialChar && LowerChar && !CapitalChar) {
       chars = "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()";
     }
-    else if (SpecialChar && !LowerChar && !CapitalChar) {
-      chars = "0123456789!@#$%^&*()";
-    }
     else if (SpecialChar && !LowerChar && CapitalChar) {
       chars = "0123456789!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     }
-
-    else if (SpecialChar && LowerChar && !CapitalChar) {
-      chars = "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()";
-    }
-
     else if (!SpecialChar && LowerChar && CapitalChar) {
       chars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     }
-    
     else if (!SpecialChar && LowerChar && !CapitalChar) {
       chars = "0123456789abcdefghijklmnopqrstuvwxyz";
     }
-    
     else if (!SpecialChar && !LowerChar && CapitalChar) {
       chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     }
-    
-    else if (SpecialChar && !LowerChar && CapitalChar) {
-      chars = "0123456789!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    else if (SpecialChar && !LowerChar && !CapitalChar) {
+      chars = "0123456789!@#$%^&*()";
     }
-    
-    else if (!SpecialChar && LowerChar && CapitalChar) {
-      chars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    }
-
     else {
       window.confirm("Please, try again with correct parameters!");
     }
