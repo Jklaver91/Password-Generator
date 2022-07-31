@@ -1,5 +1,9 @@
 var generateBtn = document.querySelector("#generate");
 
+//event to listen for button click
+generateBtn.addEventListener("click", writePassword);
+
+//Begin password generation prompt
 function writePassword() {
 
   var PassConfirm = window.confirm("Would you like to generate a password?");
@@ -12,10 +16,8 @@ function writePassword() {
 
 }
 
-generateBtn.addEventListener("click", writePassword);
-
+//prompt to generate true or false for capital characters in password then proceed to LowChar.
 var CapChar = function() {
-  // ask player what they'd like to do
    CapitalChar = window.confirm("Would you like to use Capital-case characters?");
         if (CapitalChar) {
           console.log(CapitalChar);
@@ -28,8 +30,9 @@ var CapChar = function() {
     
 }
 
+//prompt to generate true or false for lower case characters in password then proceed to SpecChar.
 var LowChar = function() {
-  // ask player what they'd like to do
+
   LowerChar = window.confirm("Would you like to use Lower-case characters?");
         if (LowerChar) {
           console.log(LowerChar);
@@ -42,8 +45,8 @@ var LowChar = function() {
 
 }
 
+//prompt to generate true or false for special characters in password then proceed to Character amount.
 var SpecChar = function() {
-  // ask player what they'd like to do
   SpecialChar = window.confirm("Would you like to use special characters?");
         if (SpecialChar) {
           console.log(SpecialChar);
@@ -55,16 +58,13 @@ var SpecChar = function() {
     }
 }
 
+//prompt to determine how long the password will be.
 var CharacterAmount = function() {
-  // ask player what they'd like to do
    var CharacterAmount = window.prompt(
     "How many characters long do you want your password to be? (8-128)"
   );
-
-  // convert answer from prompt to an actual number
-  // CharacterAmount = parseInt(CharacterAmount);
   console.log(CharacterAmount);
- 
+    // conditionals to determine character pool depending on user choice.
     if (SpecialChar && LowerChar && CapitalChar){
       chars = "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     }
@@ -105,14 +105,14 @@ var CharacterAmount = function() {
     else {
       window.confirm("Please, try again with correct parameters!");
     }
-  
-    var passwordLength = CharacterAmount -1;
-    password = "";
     
-    for (var i = 0; i <= passwordLength; i++) {
+    password = "";
+    //gererates password by using math.random, the character amount, the char pool 
+    for (var i = 0; i < CharacterAmount ; i++) {
     var randomNumber = Math.floor(Math.random() * chars.length);
     password += chars.substring(randomNumber, randomNumber +1);
     }
+    //prints password in html using the ID password
     document.getElementById("password").value = password;
   }
 
