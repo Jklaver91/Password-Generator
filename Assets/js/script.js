@@ -36,10 +36,24 @@ var LowChar = function() {
   LowerChar = window.confirm("Would you like to use Lower-case characters?");
         if (LowerChar) {
           console.log(LowerChar);
-          SpecChar();
+          Numbers();
     }
     else {
       console.log(LowerChar);
+      Numbers();
+    }
+
+}
+
+var Numbers = function() {
+
+  num = window.confirm("Would you like to use Numericalss?");
+        if (num) {
+          console.log(num);
+          SpecChar();
+    }
+    else {
+      console.log(num);
       SpecChar();
     }
 
@@ -60,31 +74,67 @@ var SpecChar = function() {
 
 //prompt to determine how long the password will be.
 var CharacterAmount = function() {
-   var CharacterAmount = window.prompt(
-    "How many characters long do you want your password to be? (8-128) *All passwords will include numerical values for additional security."
-  );
-  console.log(CharacterAmount);
-    // conditionals to determine character pool depending on user choice.
-    if (SpecialChar && LowerChar && CapitalChar){
-      chars = "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()?<>,.;:'[]{}-=+-`~|_ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    }
-    else if (SpecialChar && LowerChar && !CapitalChar) {
-      chars = "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()?<>,.;:'[]{}-=+-`~|_";
-    }
-    else if (SpecialChar && !LowerChar && CapitalChar) {
-      chars = "0123456789!@#$%^&*()?<>,.;:'[]{}-=+-`~|_ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    }
-    else if (!SpecialChar && LowerChar && CapitalChar) {
-      chars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    }
-    else if (!SpecialChar && LowerChar && !CapitalChar) {
-      chars = "0123456789abcdefghijklmnopqrstuvwxyz";
-    }
-    else if (!SpecialChar && !LowerChar && CapitalChar) {
-      chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    }
-    else if (SpecialChar && !LowerChar && !CapitalChar) {
-      chars = "!@#$%^&*()?<>,.;:'[]{}-=+-`~|_";
+   var CharacterAmount = window.prompt("How many characters long do you want your password to be? (8-128)");
+   // conditional to make sure password is between 8 and 128 characters 
+   if (CharacterAmount > 7 && CharacterAmount < 129) {
+      console.log(CharacterAmount);
+      // conditionals to determine character pool depending on user choice.
+      
+      //special
+      if (SpecialChar && LowerChar && CapitalChar && num){
+        chars = "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()?<>,.;:'[]{}-=+-`~|_ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      }
+      else if (SpecialChar && LowerChar && CapitalChar && !num){
+        chars = "abcdefghijklmnopqrstuvwxyz!@#$%^&*()?<>,.;:'[]{}-=+-`~|_ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      }
+      else if (SpecialChar && LowerChar && !CapitalChar && num){
+        chars = "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()?<>,.;:'[]{}-=+-`~|_";
+      }
+      else if (SpecialChar && !LowerChar && CapitalChar && num){
+        chars = "0123456789!@#$%^&*()?<>,.;:'[]{}-=+-`~|_ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      }
+      else if (SpecialChar && !LowerChar && !CapitalChar && num){
+        chars = "0123456789!@#$%^&*()?<>,.;:'[]{}-=+-`~|_";
+      }
+      else if (SpecialChar && LowerChar && !CapitalChar && !num){
+        chars = "abcdefghijklmnopqrstuvwxyz!@#$%^&*()?<>,.;:'[]{}-=+-`~|_";
+      }
+      else if (SpecialChar && !LowerChar && CapitalChar && !num){
+        chars = "!@#$%^&*()?<>,.;:'[]{}-=+-`~|_ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      }
+      else if (SpecialChar && !LowerChar && !CapitalChar && !num){
+        chars = "!@#$%^&*()?<>,.;:'[]{}-=+-`~|_";
+      }
+
+      //lower
+      else if (!SpecialChar && LowerChar && CapitalChar && num) {
+        chars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      }
+      else if (!SpecialChar && LowerChar && !CapitalChar && !num) {
+        chars = "abcdefghijklmnopqrstuvwxyz";
+      }
+      else if (!SpecialChar && LowerChar && CapitalChar && !num) {
+        chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      }
+      else if (!SpecialChar && LowerChar && !CapitalChar && num) {
+        chars = "0123456789abcdefghijklmnopqrstuvwxyz";
+      }
+
+      //capital
+      else if (!SpecialChar && !LowerChar && CapitalChar && !num) {
+        chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      }
+      else if (!SpecialChar && !LowerChar && CapitalChar && num) {
+        chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      }
+
+      // numbers
+      else if (!SpecialChar && !LowerChar && !CapitalChar && num) {
+        chars = "0123456789";
+      }
+      else {
+        window.confirm("Please, try again with correct parameters!");
+      }
     }
     else {
       window.confirm("Please, try again with correct parameters!");
