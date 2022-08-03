@@ -66,13 +66,13 @@ var CharacterAmount = function() {
   console.log(CharacterAmount);
     // conditionals to determine character pool depending on user choice.
     if (SpecialChar && LowerChar && CapitalChar){
-      chars = "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      chars = "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()?<>,.;:'[]{}-=+-`~|_ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     }
     else if (SpecialChar && LowerChar && !CapitalChar) {
-      chars = "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()";
+      chars = "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()?<>,.;:'[]{}-=+-`~|_";
     }
     else if (SpecialChar && !LowerChar && CapitalChar) {
-      chars = "0123456789!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      chars = "0123456789!@#$%^&*()?<>,.;:'[]{}-=+-`~|_ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     }
     else if (!SpecialChar && LowerChar && CapitalChar) {
       chars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -84,7 +84,7 @@ var CharacterAmount = function() {
       chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     }
     else if (SpecialChar && !LowerChar && !CapitalChar) {
-      chars = "0123456789!@#$%^&*()";
+      chars = "!@#$%^&*()?<>,.;:'[]{}-=+-`~|_";
     }
     else {
       window.confirm("Please, try again with correct parameters!");
