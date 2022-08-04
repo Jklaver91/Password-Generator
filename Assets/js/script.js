@@ -30,7 +30,7 @@ var CapChar = function() {
     
 }
 
-//prompt to generate true or false for lower case characters in password then proceed to SpecChar.
+//prompt to generate true or false for lower case characters in password then proceed to Numbers.
 var LowChar = function() {
 
   LowerChar = window.confirm("Would you like to use Lower-case characters?");
@@ -45,8 +45,8 @@ var LowChar = function() {
 
 }
 
+//prompt to generate true or false for Numerical characters in password then proceed to SpecChar.
 var Numbers = function() {
-
   num = window.confirm("Would you like to use Numericalss?");
         if (num) {
           console.log(num);
